@@ -37,4 +37,8 @@ public class PeopleService {
     public void delete(int id){
         peopleRepository.deleteById(id);
     }
+    @Transactional
+    public void test(){
+        System.out.println("Testing here with debug////////////////////////////////////////////");
+    }
 }

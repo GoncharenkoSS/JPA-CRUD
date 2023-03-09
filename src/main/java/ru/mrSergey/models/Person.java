@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @Entity
 @Table(name = "person")
 public class Person {
@@ -23,6 +25,9 @@ public class Person {
     @NotEmpty(message = "Email should not be empty")
     @Email(message = "Is wrong email")
     private String email;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
 
     public Person(String name, int age, String email) {
         this.name = name;
